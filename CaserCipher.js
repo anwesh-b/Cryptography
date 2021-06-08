@@ -52,5 +52,3 @@ const encryptedText = caserCipher(text,"encryption");
 console.log(`Encrypted text: ${encryptedText}`);
 const decryptedText = caserCipher(encryptedText,"decryption");
 console.log(`Decrypted text: ${decryptedText}`);
-
-
