@@ -1,5 +1,5 @@
-const originalText = process.argv[2].toUpperCase() || 'hello'.toUpperCase() ;
-const rawKey = process.argv[3].toUpperCase() || 'byebye'.toUpperCase();
+const originalText = process.argv[2]?.toUpperCase() || 'hello'.toUpperCase() ;
+const rawKey = process.argv[3]?.toUpperCase() || 'byebye'.toUpperCase();
 const MAX_ROW = 5;
 const MAX_COLUMN = 5; 
 const TOGETHER_STRINGS = ['I','J'];
