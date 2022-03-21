@@ -1,0 +1,4 @@
+# Discard files with no extension, i.e. executable files.
+*
+!/**/
+!*.*
