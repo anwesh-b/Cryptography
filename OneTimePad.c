@@ -5,33 +5,24 @@
 
 char* encode(char*, char*);
 char* decode(char*, char*);
+char* randKeyGen(int);
 
 void main(){
-  char plainText[50], key[50];
-  char *cipherText, *decryptedText;
+  char plainText[50];
+  char *cipherText, *decryptedText, *key;
 
   printf("Enter plaintext: ");
   scanf("%s", plainText);
-  printf("Enter the key: ");
-  scanf("%s", key);
 
   int plainTextLen = strlen(plainText);
-  int keyLen = strlen(key);
 
   // Converting to Lowercase
   for (int i = 0; i < plainTextLen; i++){
     plainText[i] = tolower(plainText[i]);
   }
 
-  for (int i = 0; i < keyLen; i++){
-    key[i] = tolower(key[i]);
-  }
-
-  if(plainTextLen > keyLen){
-    for (int i=keyLen-1; i<plainTextLen; i++){
-      key[i] = key[i % keyLen];
-    }
-  }
+  key = randKeyGen(plainTextLen);
+  printf("\nRandomly Generated Key: %s\n", key);
 
   cipherText = encode(plainText, key);
   decryptedText = decode(cipherText, key);
@@ -66,4 +57,14 @@ char* decode(char* cipherText, char* key){
   }
 
   return finalText;
+}
+
+char* randKeyGen(int len){
+  char *key = malloc(len*sizeof(char));
+
+  for (int i = 0; i < len; i++){
+    key[i] = rand() % 26 + 97;
+  }
+
+  return key;
 }
